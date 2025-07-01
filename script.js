@@ -20,11 +20,49 @@ It’s just here to help Copilot support you better.
 Start your code below 👇
 */
 
+// Function to fetch a random fox image and display it
+function fetchFox() {
+    // Fetch data from the API
+    fetch('https://randomfox.ca/floof/')
+        .then(function(response) {
+            if (!response.ok) {
+                // If response is not ok, throw an error
+                throw new Error('Could not fetch data');
+            }
+            // Parse the response as JSON
+            return response.json();
+        })
+        .then(function(data) {
+            // Select the output element
+            const outputDiv = document.querySelector('#output');
+            // Clear any previous content
+            outputDiv.innerHTML = '';
+            // Create an image element
+            const foxImg = document.createElement('img');
+            foxImg.src = data.image;
+            foxImg.alt = 'Random fox';
+            foxImg.style.maxWidth = '300px'; // Limit image size for user-friendliness
+            // Add the image to the output div
+            outputDiv.appendChild(foxImg);
+            // Optionally, display the link to the image
+            const imgLink = document.createElement('p');
+            imgLink.textContent = 'Image source: ' + data.link;
+            outputDiv.appendChild(imgLink);
+        })
+        .catch(function(error) {
+            // Handle errors and display a message
+            const outputDiv = document.querySelector('#output');
+            outputDiv.textContent = 'Error: ' + error.message;
+        });
+}
 
-
-
-// Use this script to write your fetch logic
-// You'll fetch data from your selected API and display it on the page
+// Add event listener to the button to fetch a fox image when clicked
+document.addEventListener('DOMContentLoaded', function() {
+    const fetchBtn = document.querySelector('#fetch-fox-btn');
+    if (fetchBtn) {
+        fetchBtn.addEventListener('click', fetchFox);
+    }
+});
 
 // Example placeholder:
 console.log("Team activity starter code loaded.");

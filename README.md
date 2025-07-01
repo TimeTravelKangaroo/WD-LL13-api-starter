@@ -11,7 +11,7 @@ In this mini project, you’ll build a small interactive webpage that fetches da
 - `.devcontainer/` — pre-configured environment for Codespaces (includes Live Preview + Copilot)
 
 ## 🤖 Suggested AI Prompt
-> How can I fetch data from the [API name] and display it on a simple webpage using vanilla JavaScript?
+> How can I use JavaScript to fetch data from https://randomfox.ca/floof/ and display it in a user-friendly way using only vanilla JS?
 
 ## ✅ Your Team's Mission
 Use one of the Easy APIs provided to:
